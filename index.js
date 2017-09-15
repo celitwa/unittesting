@@ -1,9 +1,7 @@
-window.cms = [];
-
-document.addEventListener('DOMContentLoaded', function() {
-   var view = document.createElement("div");
-   view.innerHtml = "Hello I'm a component";
-   var component = new cms.Component();
-
-   console.log("Hi");
-});
+(function (cms, document, window) {
+	document.addEventListener('DOMContentLoaded', function() {
+		var app = new cms.App();
+		console.log(cms);
+		console.log("Hi");
+	});
+})(window.cms = window.cms || {} ,document,window);

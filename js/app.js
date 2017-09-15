@@ -1,4 +1,4 @@
-(function(cms,Component){
+(function(cms, components){
 	cms.App = App;
 
 	var _self;
@@ -24,4 +24,4 @@
 
 		return new componentConstructor(this,_self);
 	};
-})();
+})(window.cms = window.cms || {}, window.cms.components);
