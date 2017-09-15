@@ -1,11 +1,9 @@
-function helloWorld() {
-  return 'Hello world!';
-}
+window.cms = [];
 
-function calculate(num1,num2){
-	return num1 + num2;
-}
+document.addEventListener('DOMContentLoaded', function() {
+   var view = document.createElement("div");
+   view.innerHtml = "Hello I'm a component";
+   var component = new cms.Component();
 
-function welcome(){
-	return helloWorld();
-}
+   console.log("Hi");
+});
