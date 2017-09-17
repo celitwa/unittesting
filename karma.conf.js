@@ -11,11 +11,12 @@ module.exports = function(config) {
       client: {
           useIframe: false
       },
-      browsers: ['PhantomJS'],
+      browsers: ['Chrome'],
       files: [
         'node_modules/phantomjs-polyfill/bind-polyfill.js',
+        'dist/vendor.min.js',
         'js/tests/*.js',
-        'js/unit-testing.min.js'
+        'dist/unit-testing.min.js'
       ],
       plugins: [
         'karma-coverage',

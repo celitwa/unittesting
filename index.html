@@ -4,22 +4,38 @@
 <meta charset="UTF-8"/>
 <title>Unit Testing</title>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+</style>
+
+<link rel="stylesheet" type="text/css" href="styles/index.css">
+<script type="text/javascript" src="dist/vendor.min.js"></script>
 <script type="text/javascript" src="dist/unit-testing.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
 </head>
 
 <body>
-	<div id="#cms" data-mode="edit">
-		<div id="mode">
-			<select>
+	<section id="cms" data-mode="edit">
+		<header id="mode">
+			<h1>Sample CMS</h1>
+			<select id="view-mode">
 				<option value="edit">Edit</option>
 				<option value="preview">Preview</option>
 			</select>
-		</div>
-		<div class="component" data-component="Title">
+			<select id="login-state">
+				<option value="loggedin">Logged In</option>
+				<option value="loggedout">Logged Out</option>
+			</select>
+		</header>
+		<div class="component title-component" data-component="Title">
 			<h1 class="component-title"> Title </h1>
-			<input type="text"/>
+			<label for="title-value">Title text</label><input id="title-value" type="text"/>
+			<div class="component-properties">
+				<h2 class="component-subtitle">Properties</h2>
+				<label for="color-value">Title color</label><input id="color-value" type="text"/>
+				<label for="color-login-value">Logged In title color</label><input id="color-login-value" type="text"/>
+			</div>
 		</div>
-	</div>
+	</section>
 </body>
 </html>

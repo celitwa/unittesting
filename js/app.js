@@ -15,14 +15,17 @@
 
 	App.prototype.constructor = App;
 	App.prototype.currentMode = 'edit';
+	App.prototype.currentState = 'loggedin';
 
 	App.prototype.initializeComponents = function(){
 		var _componentClass = this.componentClass;
 		this.pageComponents = $(_componentClass).map(this.createComponent);
 	};
 
+
 	App.prototype.bindEvents = function(){
-		$('#mode select').change(toggleMode);
+		$('#mode select#view-mode').change(listenChange);
+		$('#mode select#login-state').change(listenChange);
 	}
 
 	App.prototype.createComponent = function(){
@@ -36,18 +39,45 @@
 		return new componentConstructor(this,_self);
 	};
 
-	function toggleMode (ev){
-		var value = $(ev.currentTarget).val();
+	App.prototype.setMode = function(value){
+		this.currentMode = value;
+		this.toggleMode(value);
+	};
 
-		if(_self.currentMode != value){
-			_self.element.data('mode', value);
-			_self.currentMode = value;
-
-			$.each(_self.pageComponents, function(index,value){
-				value.setMode(_self.currentMode);
-			});
-
+	App.prototype.setState= function(value){
+		if(this.currentMode == 'preview'){
+			this.currentState = value;
+			this.toggleState(value);
 		}
 	};
 
-})(window.cms, window.cms.Component);
+	function listenChange(ev) {
+		var value = $(ev.currentTarget).val();
+
+		switch($(ev.currentTarget).attr('id')){
+			case 'view-mode':
+				_self.setMode(value);
+			break;
+			case 'login-state':
+				_self.setState(value);
+			break;
+		}
+	};
+
+	App.prototype.toggleMode= function(value){		
+		$(_self.element).attr('data-mode', value);
+
+		$.each(_self.pageComponents, function(index,value){
+			value.setMode(_self.currentMode);
+		});
+	};
+
+	App.prototype.toggleState = function(value){
+		$(_self.element).attr('data-state', value);
+
+		$.each(_self.pageComponents, function(index,value){
+			value.setState(_self.currentState);
+		});
+	};
+
+})(cms, cms.Component);

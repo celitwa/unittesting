@@ -1,0 +1,96 @@
+body{
+	font-family: 'Roboto',Helvetica, Arial, sans-serif;
+}
+
+body * {
+	box-sizing: border-box;
+}
+
+header h1{
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+#mode {
+	background-color: #666;
+	vertical-align: middle;
+	color: #fff;
+	padding: 10px;
+	width: 100%;
+}
+
+#mode h1 {
+	width: 80%;
+}
+
+#mode select {
+	width: 15%;
+}
+
+#mode > * {
+	display: inline-block;
+}
+
+#cms[data-mode='edit'] select#login-state{
+    display: none;
+}
+
+#cms[data-mode='preview'] select#login-mode{
+    display: inline-block;
+}
+
+select#login-state {
+	text-align: left;
+}
+
+.component-title {
+	color:#666;
+	width: 100%;
+	background-color: #ccc;
+	padding: 10px 5px;
+	text-transform: uppercase;
+}
+
+.component-subtitle{
+	display: block;
+	width: 100%;
+	background-color: #ccc;
+	color: #fff;
+	padding: 10px 5px;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+
+.preview .component-title, .preview .component-properties, .preview.component label {
+	display: none;
+}
+
+.component-properties > * {
+	display: inline-block;
+}
+
+.component label {
+	text-transform: uppercase;
+	font-size: 11px;
+}
+
+.component-properties label {
+	padding: 0 10px;
+}
+
+.edit.component {
+	border: 1px solid #666;
+	margin: 5px 0;
+	padding: 2px;
+}
+
+/*Title component*/
+
+.title-component input#title-value {
+	width: 100%;
+	font-size: 30px;
+}
+
+.preview input {
+	border: none;
+}
