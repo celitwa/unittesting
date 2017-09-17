@@ -8,12 +8,12 @@ var gulp = require('gulp'),
 
 // THEMES
 gulp.task('js-themes', function () {
-    return gulp.src(['index.js','js/*.js'])
+    return gulp.src(['index.js','js/*.js', 'js/components/*.js'])
       .pipe(sourcemaps.init())
       .pipe(uglify())
       .pipe(concat('unit-testing.min.js'))
       .pipe(sourcemaps.write())
-      .pipe(gulp.dest('js'));
+      .pipe(gulp.dest('./dist/'));
 });
 
 // TESTS

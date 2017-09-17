@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"/>
 <title>Unit Testing</title>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/unit-testing.min.js"/>
-<script type="text/javascript" src="index.js"/>
+<script type="text/javascript" src="dist/unit-testing.min.js"></script>
 </head>
+
 <body>
-
-
+	<div id="#cms" data-mode="edit">
+		<div id="mode">
+			<select>
+				<option value="edit">Edit</option>
+				<option value="preview">Preview</option>
+			</select>
+		</div>
+		<div class="component" data-component="Title">
+			<h1 class="component-title"> Title </h1>
+			<input type="text"/>
+		</div>
+	</div>
 </body>
-
 </html>

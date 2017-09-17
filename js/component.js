@@ -1,38 +1,40 @@
 (function(cms) {
     
-    cms.Component = this;
+    cms.Component = Component;
     
-    var Component = function(element, ns) { 
-        this.element = element;
-        this.cn = element.className;
-        this.currentMode = "edit";
+    var _self,
+        _currentMode;
 
-        initialize();
 
-        this.initialize = function(element) {
-            this.addComponent();
-        };
+    function Component(el,app) { 
+        _self = this;
+        this.element = $(el);
+        this.app = app;
 
-        this.setEdit = function() {
-            this.currentMode = "edit";
-            toggleMode();
-        };
-
-        this.setPreview = function() {
-            this.currentMode = "publish";
-            toggleMode();
-        };
-
-        this.toggleMode = function() {
-            var previousMode = this.currentMode == "edit" ? "publish" : "edit";
-            if(this.cn.indexOf(previousMode) > - 1 ){
-                element.classList.remove(previousMode);
-            }
-            element.classList.add(currentMode);
-        };
-
-        this.addComponent = function() {
-            document.body.appendChild(element);
-        }
+        this.initialize();
     };
+
+
+    Object.defineProperty(this, "currentMode", { 
+        get: function() {return _currentMode},
+        set: function (value){ _currentMode = value; _self.toggleMode(); } 
+    });
+
+
+    Component.prototype.initialize = function() {
+        this.setMode(this.app.currentMode);
+    };
+
+    Component.prototype.setMode = function(mode) {
+        $(this.element).removeClass(currentMode);
+        currentMode = mode;
+    };
+
+    Component.prototype.toggleMode = function() {
+
+        $(this.element).data('currentMode', currentMode);
+        $(this.element).addClass(currentMode);
+
+    };
+
 })(window.cms); 
